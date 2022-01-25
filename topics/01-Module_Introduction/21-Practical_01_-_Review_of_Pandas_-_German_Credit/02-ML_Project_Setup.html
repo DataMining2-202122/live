@@ -75,6 +75,10 @@
 											<a href="../../../topics/01-Module_Introduction/index.html">Module Introduction</a>
 										</li>
 										
+										<li >
+											<a href="../../../topics/02-Feature_Engineering/index.html">Feature Engineering</a>
+										</li>
+										
 									</ul>
 								</li>
 							</ul>
@@ -98,6 +102,10 @@
 										
 										<li class="active">
 											<a href="../../../topics/01-Module_Introduction/index.html#21-Practical_01_-_Review_of_Pandas_-_German_Credit">Practical 01 - Review of Pandas - German Credit</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/01-Module_Introduction/index.html#31-Top_X_pandas_commands">Top X pandas commands</a>
 										</li>
 										
 									</ul>
@@ -277,15 +285,16 @@
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; Account_Balance&quot;</span><span class="p">,</span> <span class="s2">&quot;Loan_Duration&quot;</span><span class="p">,</span> <span class="s2">&quot;Credit_History&quot;</span><span class="p">,</span> 
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Account_Balance&quot;</span><span class="p">,</span> <span class="s2">&quot;Loan_Duration&quot;</span><span class="p">,</span> <span class="s2">&quot;Credit_History&quot;</span><span class="p">,</span> 
     <span class="s2">&quot;Loan_Purpose&quot;</span><span class="p">,</span> <span class="s2">&quot;Loan_Amount&quot;</span><span class="p">,</span> <span class="s2">&quot;Savings&quot;</span><span class="p">,</span> <span class="s2">&quot;Years_Employed&quot;</span><span class="p">,</span> 
     <span class="s2">&quot;Installment_Rate&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender_and_Status&quot;</span><span class="p">,</span> <span class="s2">&quot;Other_Debtors_Guarantors&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Year_of_Residence&quot;</span><span class="p">,</span> <span class="s2">&quot;Property&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Installment_Plans&quot;</span><span class="p">,</span> <span class="s2">&quot;Housing&quot;</span><span class="p">,</span> <span class="s2">&quot;Existing_Credits&quot;</span><span class="p">,</span> <span class="s2">&quot;Job&quot;</span><span class="p">,</span> <span class="s2">&quot;Dependents&quot;</span><span class="p">,</span> <span class="s2">&quot;Telephone&quot;</span><span class="p">,</span> <span class="s2">&quot;Foreign&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Year_of_Residence&quot;</span><span class="p">,</span> <span class="s2">&quot;Property&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Installment_Plans&quot;</span><span class="p">,</span> <span class="s2">&quot;Housing&quot;</span><span class="p">,</span> <span class="s2">&quot;Existing_Credits&quot;</span><span class="p">,</span> <span class="s2">&quot;Job&quot;</span><span class="p">,</span> <span class="s2">&quot;Dependents&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Telephone&quot;</span><span class="p">,</span> <span class="s2">&quot;Foreign&quot;</span><span class="p">,</span> 
     <span class="s2">&quot;Credit_Rating&quot;</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
-<p><strong>Step 6:</strong> Replace the codes with the data values from <code>german.doc</code> so the resulting 
-dataset looks like</p>
+<p><strong>Step 6:</strong> Replace the codes with the data values from <code>german.doc</code> so the resulting dataset looks like</p>
 <p><img src="files/02-labeled.png" width=100%></p>
 <p>There is a number of ways to do the above step. I use regular expressions to parse <code>german.doc</code> and yaml to store the resulting encoding dictionary.  </p>
 <p><strong>Step 7:</strong> Save labeled dataset to <code>data</code> folder. Use pickle format, instead of csv, so that meta information (data type, etc) is preserved.</p>

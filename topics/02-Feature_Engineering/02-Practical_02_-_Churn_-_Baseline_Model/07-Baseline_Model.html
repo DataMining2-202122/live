@@ -71,11 +71,11 @@
 									<ul class="dropdown-menu" role="menu">
 										<li class="dropdown-header">Topics</li>
 										
-										<li class="active">
+										<li >
 											<a href="../../../topics/01-Module_Introduction/index.html">Module Introduction</a>
 										</li>
 										
-										<li >
+										<li class="active">
 											<a href="../../../topics/02-Feature_Engineering/index.html">Feature Engineering</a>
 										</li>
 										
@@ -97,15 +97,23 @@
 										<li class="dropdown-header">Resources</li>
 										
 										<li >
-											<a href="../../../topics/01-Module_Introduction/index.html#01-Module_Overview">Module Overview</a>
+											<a href="../../../topics/02-Feature_Engineering/index.html#01-Introduction_to_Feature_Engineering">Introduction to Feature Engineering</a>
 										</li>
 										
 										<li class="active">
-											<a href="../../../topics/01-Module_Introduction/index.html#21-Practical_01_-_Review_of_Pandas_-_German_Credit">Practical 01 - Review of Pandas - German Credit</a>
+											<a href="../../../topics/02-Feature_Engineering/index.html#02-Practical_02_-_Churn_-_Baseline_Model">Practical 02 - Churn - Baseline Model</a>
 										</li>
 										
 										<li >
-											<a href="../../../topics/01-Module_Introduction/index.html#31-Top_X_pandas_commands">Top X pandas commands</a>
+											<a href="../../../topics/02-Feature_Engineering/index.html#03-Feature_Selection">Feature Selection</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/02-Feature_Engineering/index.html#05-Automatic_Feature_Engineering">Automatic Feature Engineering</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/02-Feature_Engineering/index.html#06-Dimensional_Reduction">Dimensional Reduction</a>
 										</li>
 										
 									</ul>
@@ -120,24 +128,40 @@
 							<ul class="nav navbar-nav">
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										<span>Outline</span
+										<span>Baseline Model</span
 									</a>
 									<ul class="dropdown-menu" role="menu">
 										
-										<li class="active">
+										<li >
 											<a href="00-Outline.html">Outline</a>
 										</li>
 										
 										<li >
-											<a href="01-Software.html">Software</a>
+											<a href="01-Project_Setup.html">Project Setup</a>
 										</li>
 										
 										<li >
-											<a href="02-ML_Project_Setup.html">ML Project Setup</a>
+											<a href="02-Loading_Data.html">Loading Data</a>
 										</li>
 										
 										<li >
-											<a href="03-Data_Exploration.html">Data Exploration</a>
+											<a href="03-Exploratory_Data_Analysis.html">Exploratory Data Analysis</a>
+										</li>
+										
+										<li >
+											<a href="04-EDA_-_Target.html">EDA - Target</a>
+										</li>
+										
+										<li >
+											<a href="05-EDA_-_Attributes.html">EDA - Attributes</a>
+										</li>
+										
+										<li >
+											<a href="06-ETA_-_Between_Attributes.html">ETA - Between Attributes</a>
+										</li>
+										
+										<li class="active">
+											<a href="07-Baseline_Model.html">Baseline Model</a>
 										</li>
 										
 									</ul>
@@ -156,39 +180,64 @@
 		
 		<ul class="pager">
 			
-			<li class="previous disabled"><a>&larr; Previous</a></li>
+			<li class="previous"><a href="06-ETA_-_Between_Attributes.html">&larr; Previous (ETA - Between Attributes)</a></li>
 			
 			
 			
-			<li class="next"><a href="01-Software.html">Next (Software) &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a></li>
 			
 		</ul>
 		
-		<h1>Review of Pandas - German Credit</h1>
-<p>In this practical we are going to analyse a small dataset. The purpose of this practical is to ensure you are happy with both basic pandas operations and data mining process (EDA) that were covered in <em>Data Mining 1</em> module.</p>
-<p>The aims of this lab session are:</p>
+		<h1>Baseline Model</h1>
+<p>Now that you have some general understanding of the dataset that you are working with, we can start to think about modelling.</p>
+<h2>Train/Test split</h2>
+<p>Since we want to have an unbiased measurement of our model quality we perform the usual train/test spilt, with two slight modifications.</p>
+<ul>
+<li>use stratified split (on target) to ensure train and test sub-datasets have approximately the same percentage of samples of each target class as the complete set --- important for</li>
+<li>use a fixed seed for the random number generator to allow comparisons between students (i.e. grading (for later practicals)).</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">Churn</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">.30</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2>Baseline Model</h2>
 <ul>
 <li>
-<p><a href="01-Software.html">Install / Verify a Suitable Python Environment</a><br/>
- You probably have a working python installation from last semester, but if not we will use a Python 3.9 distribution and all additional modules that will be used during this course have been tested to ensure no incompatibilities at this time.</p>
+<p>What features should be used?</p>
+<ul>
+<li>If only I did not skip the EDA ...</li>
+</ul>
 </li>
 <li>
-<p><a href="02-ML_Project_Setup.html">ML Project Setup.</a><br/>
- A generic project setup for machine learning projects.</p>
+<p>What data preparation steps are needed?</p>
+<ul>
+<li>Have not covered this, but at the minimum scale the data.</li>
+</ul>
 </li>
 <li>
-<p><a href="03-Data_Exploration.html">Review of Basic Data Exploration Skills and Pandas.</a><br/>
- We will take a small dataset based on the German Credit dataset.</p>
+<p>Which classifiers to use? </p>
+<ul>
+<li>Try 6-10 classifiers and compare results.</li>
+</ul>
+</li>
+<li>
+<p>What is the evaluation metric?</p>
+<ul>
+<li>Today we will use <code>accuracy</code> but this has issues.</li>
+</ul>
 </li>
 </ul>
 		
 		<ul class="pager">
 			
-			<li class="previous disabled"><a>&larr; Previous</a></li>
+			<li class="previous"><a href="06-ETA_-_Between_Attributes.html">&larr; Previous (ETA - Between Attributes)</a></li>
 			
 			
 			
-			<li class="next"><a href="01-Software.html">Next (Software) &rarr;</a></li>
+			<li class="next disabled"><a>Next &rarr;</a></li>
 			
 		</ul>
 

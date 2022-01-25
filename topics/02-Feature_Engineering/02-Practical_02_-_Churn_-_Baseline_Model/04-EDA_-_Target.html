@@ -71,11 +71,11 @@
 									<ul class="dropdown-menu" role="menu">
 										<li class="dropdown-header">Topics</li>
 										
-										<li class="active">
+										<li >
 											<a href="../../../topics/01-Module_Introduction/index.html">Module Introduction</a>
 										</li>
 										
-										<li >
+										<li class="active">
 											<a href="../../../topics/02-Feature_Engineering/index.html">Feature Engineering</a>
 										</li>
 										
@@ -97,15 +97,23 @@
 										<li class="dropdown-header">Resources</li>
 										
 										<li >
-											<a href="../../../topics/01-Module_Introduction/index.html#01-Module_Overview">Module Overview</a>
+											<a href="../../../topics/02-Feature_Engineering/index.html#01-Introduction_to_Feature_Engineering">Introduction to Feature Engineering</a>
 										</li>
 										
 										<li class="active">
-											<a href="../../../topics/01-Module_Introduction/index.html#21-Practical_01_-_Review_of_Pandas_-_German_Credit">Practical 01 - Review of Pandas - German Credit</a>
+											<a href="../../../topics/02-Feature_Engineering/index.html#02-Practical_02_-_Churn_-_Baseline_Model">Practical 02 - Churn - Baseline Model</a>
 										</li>
 										
 										<li >
-											<a href="../../../topics/01-Module_Introduction/index.html#31-Top_X_pandas_commands">Top X pandas commands</a>
+											<a href="../../../topics/02-Feature_Engineering/index.html#03-Feature_Selection">Feature Selection</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/02-Feature_Engineering/index.html#05-Automatic_Feature_Engineering">Automatic Feature Engineering</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/02-Feature_Engineering/index.html#06-Dimensional_Reduction">Dimensional Reduction</a>
 										</li>
 										
 									</ul>
@@ -120,24 +128,52 @@
 							<ul class="nav navbar-nav">
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										<span>Outline</span
+										<span>EDA - Target</span
 									</a>
 									<ul class="dropdown-menu" role="menu">
 										
-										<li class="active">
+										<li >
 											<a href="00-Outline.html">Outline</a>
 										</li>
 										
 										<li >
-											<a href="01-Software.html">Software</a>
+											<a href="01-Project_Setup.html">Project Setup</a>
 										</li>
 										
 										<li >
-											<a href="02-ML_Project_Setup.html">ML Project Setup</a>
+											<a href="02-Loading_Data.html">Loading Data</a>
 										</li>
 										
 										<li >
-											<a href="03-Data_Exploration.html">Data Exploration</a>
+											<a href="03-Exploratory_Data_Analysis.html">Exploratory Data Analysis</a>
+										</li>
+										
+										<li class="active">
+											<a href="04-EDA_-_Target.html">EDA - Target</a>
+										</li>
+										
+										<li >
+											<a href="05-EDA_-_Attributes.html">EDA - Attributes</a>
+										</li>
+										
+										<li >
+											<a href="06-ETA_-_Between_Attributes.html">ETA - Between Attributes</a>
+										</li>
+										
+										<li >
+											<a href="07-Preprocessing_Data.html">Preprocessing Data</a>
+										</li>
+										
+										<li >
+											<a href="08-Modeling_Decisions.html">Modeling Decisions</a>
+										</li>
+										
+										<li >
+											<a href="09-Classification.html">Classification</a>
+										</li>
+										
+										<li >
+											<a href="10-Conclusions.html">Conclusions</a>
 										</li>
 										
 									</ul>
@@ -156,39 +192,40 @@
 		
 		<ul class="pager">
 			
-			<li class="previous disabled"><a>&larr; Previous</a></li>
+			<li class="previous"><a href="03-Exploratory_Data_Analysis.html">&larr; Previous (Exploratory Data Analysis)</a></li>
 			
 			
 			
-			<li class="next"><a href="01-Software.html">Next (Software) &rarr;</a></li>
+			<li class="next"><a href="05-EDA_-_Attributes.html">Next (EDA - Attributes) &rarr;</a></li>
 			
 		</ul>
 		
-		<h1>Review of Pandas - German Credit</h1>
-<p>In this practical we are going to analyse a small dataset. The purpose of this practical is to ensure you are happy with both basic pandas operations and data mining process (EDA) that were covered in <em>Data Mining 1</em> module.</p>
-<p>The aims of this lab session are:</p>
+		<h1>EDA - Target</h1>
+<p>Main questions here are:</p>
 <ul>
 <li>
-<p><a href="01-Software.html">Install / Verify a Suitable Python Environment</a><br/>
- You probably have a working python installation from last semester, but if not we will use a Python 3.9 distribution and all additional modules that will be used during this course have been tested to ensure no incompatibilities at this time.</p>
+<p>How many classes?</p>
 </li>
 <li>
-<p><a href="02-ML_Project_Setup.html">ML Project Setup.</a><br/>
- A generic project setup for machine learning projects.</p>
+<p>Is the dataset balanced?</p>
 </li>
 <li>
-<p><a href="03-Data_Exploration.html">Review of Basic Data Exploration Skills and Pandas.</a><br/>
- We will take a small dataset based on the German Credit dataset.</p>
+<p>Generate plot of breakdown of cases by target value.</p>
 </li>
 </ul>
+<h2>Particular Deliverables</h2>
+<p>Generate each of the following graphs/tables:</p>
+<figure>
+   <img src="files/eda_churn.png" alt="" width="80%" >
+ </figure>
 		
 		<ul class="pager">
 			
-			<li class="previous disabled"><a>&larr; Previous</a></li>
+			<li class="previous"><a href="03-Exploratory_Data_Analysis.html">&larr; Previous (Exploratory Data Analysis)</a></li>
 			
 			
 			
-			<li class="next"><a href="01-Software.html">Next (Software) &rarr;</a></li>
+			<li class="next"><a href="05-EDA_-_Attributes.html">Next (EDA - Attributes) &rarr;</a></li>
 			
 		</ul>
 
