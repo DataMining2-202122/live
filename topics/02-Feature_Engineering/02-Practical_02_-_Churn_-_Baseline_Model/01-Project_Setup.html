@@ -161,19 +161,7 @@
 										</li>
 										
 										<li >
-											<a href="07-Preprocessing_Data.html">Preprocessing Data</a>
-										</li>
-										
-										<li >
-											<a href="08-Modeling_Decisions.html">Modeling Decisions</a>
-										</li>
-										
-										<li >
-											<a href="09-Classification.html">Classification</a>
-										</li>
-										
-										<li >
-											<a href="10-Conclusions.html">Conclusions</a>
+											<a href="07-Baseline_Model.html">Baseline Model</a>
 										</li>
 										
 									</ul>
@@ -271,7 +259,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;churn.csv&#39;</span><span class="p">,</span><span class="s1">&#39;states.csv&#39;</span><span class="p">]:</span>
-    <span class="n">source</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://datamining2-202122.github.io/live/topics/02-Feature_Engineering/03-Practical_02_-_Churn_-_Baseline_Model/files/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://datamining2-202122.github.io/live/topics/02-Feature_Engineering/02-Practical_02_-_Churn_-_Baseline_Model/files/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="n">target</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;orig/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
