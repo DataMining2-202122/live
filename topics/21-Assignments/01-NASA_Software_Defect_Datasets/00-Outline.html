@@ -87,6 +87,10 @@
 											<a href="../../../topics/04-Hyperparameter_Tuning/index.html">Hyperparameter Tuning</a>
 										</li>
 										
+										<li >
+											<a href="../../../topics/05-Ensemble_Learning/index.html">Ensemble Learning</a>
+										</li>
+										
 										<li class="active">
 											<a href="../../../topics/21-Assignments/index.html">Assignments</a>
 										</li>
@@ -200,14 +204,17 @@ The datasets are overlapping in the sense that many cases appear in multiple dat
 <p>The number of cases is small (especially after cleaning) so you will need to relay on cross validation scoring rather than train/validation/test split.</p>
 </li>
 <li>
-<p>The dataset is imbalanced and in addition to the low number of cases we need to be careful when preforming a test/train split and will need to apply imbalanced techniques (think SMOTE). </p>
+<p>The dataset is imbalanced and in addition to the low number of cases we need to be careful whenever preforming a test/train or CV split and will need to apply imbalanced techniques (think SMOTE). </p>
 </li>
 <li>
-<p>Accuracy is a uninformative measure of success for a defect detector, because two detectors with the similar accuracy can have widely varying True Positive and False Positive rates. Hence we will use AUC as our metric.</p>
+<p>Accuracy is a uninformative measure of success for a defect detector, because two detectors with the similar accuracy can have widely varying True Positive and False Positive rates. Hence we will use PR AUC as our metric.</p>
 </li>
-<li>
-<p>Feature importance is relevant, so you should be able to make some comments on which features are important, and their relative importance etc.</p>
-</li>
+</ul>
+<p class="alert alert-warning">UPDATE February 26&gt;<br />
+Initially I asked you the used ROC AUC. This metric is not good for imbalanced datasets and it should have been PR AUC and the related scoring function 
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html">average_precision_score</a> An excellent paper explaining the difference (and more) is <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4349800/pdf/pone.0118432.pdf">The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets</a></p>
+<ul>
+<li>Feature importance is relevant, so you should be able to make some comments on which features are important, and their relative importance etc.</li>
 </ul>
 <h2>Submission</h2>
 <p>Upload the following notebooks (and additional python scripts if used):</p>
