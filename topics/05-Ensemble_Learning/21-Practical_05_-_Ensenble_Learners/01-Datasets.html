@@ -152,6 +152,18 @@
 											<a href="02-Preprocessing.html">Preprocessing</a>
 										</li>
 										
+										<li >
+											<a href="03-AdaBoost.html">AdaBoost</a>
+										</li>
+										
+										<li >
+											<a href="04-Gradient_Boosting.html">Gradient Boosting</a>
+										</li>
+										
+										<li >
+											<a href="05-XGBoost.html">XGBoost</a>
+										</li>
+										
 									</ul>
 								</li>
 							</ul>
@@ -217,7 +229,7 @@ Unfortunately, the training and hyper-parameter optimisation is too long (15 min
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fetching database name:</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> id:</span><span class="si">{</span><span class="n">did</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">openml</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">(</span><span class="n">did</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">get_dataset</span><span class="p">(</span><span class="n">did</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>The resulting dataset has common structure which we can integrate as follows</p>
