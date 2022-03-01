@@ -188,7 +188,73 @@
 			
 		</ul>
 		
-		
+		<h1>Gradient Boosting</h1>
+<p>Gradient Boosting is another powerful boosting algorithm. 
+Here is the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html">sklearn documentation of Gradient Boosting</a>.</p>
+<p>To train we run </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">gbrt</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">gbrt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span><span class="err">`</span>
+</code></pre></div>
+</td></tr></table>
+<p>and generate predictions as usual as</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">y_pred</span> <span class="o">=</span> <span class="n">gbrt</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2>Gradient Boosting with Early Stopping</h2>
+<p><strong>Early stopping</strong> is one of the important methods we use to prevent over-fitting. Below is the example code of how we perform Gradient Boosting with early stopping.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">gbrt</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">subsample</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">tol</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">gbrt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Find the optimal n_estimators - have lowest error on validation set</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">errors</span> <span class="o">=</span> <span class="p">[</span><span class="n">log_loss</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+          <span class="k">for</span> <span class="n">y_pred</span> <span class="ow">in</span> <span class="n">gbrt</span><span class="o">.</span><span class="n">staged_predict_proba</span><span class="p">(</span><span class="n">X_val</span><span class="p">)]</span>
+<span class="n">bst_n_estimators</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">gbrt_best</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">n_estimators</span><span class="o">=</span><span class="n">bst_n_estimators</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">gbrt_best</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">min_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
+<span class="n">min_error</span>
+</code></pre></div>
+</td></tr></table>
+<p>Since the number of estimators we tried here is only 10, it does not satisfy the requirement of early stopping. However, you can try a larger value for <code>n_estimators</code> to see the impact of early stopping here.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span> <span class="s2">&quot;b.-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">bst_n_estimators</span><span class="p">,</span> <span class="n">bst_n_estimators</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_error</span><span class="p">],</span> <span class="s2">&quot;k--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="n">min_error</span><span class="p">,</span> <span class="n">min_error</span><span class="p">],</span> <span class="s2">&quot;k--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bst_n_estimators</span><span class="p">,</span> <span class="n">min_error</span><span class="p">,</span> <span class="s2">&quot;ko&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of trees&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Validation error&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+<p><strong>Question</strong></p>
+<p>Tune the hyper-parameter of Gradient Boost. Try your best to optimize the model performance.</p>
 		
 		<ul class="pager">
 			
