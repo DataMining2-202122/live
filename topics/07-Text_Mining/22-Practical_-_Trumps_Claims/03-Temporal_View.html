@@ -208,7 +208,7 @@
 <figcaption>Topic frequency over time</figcaption>
 </figure>
 
-<p>Hints (takes about 10 lines):</p>
+<h2>Hints (takes about 10 lines):</h2>
 <ul>
 <li>Group <code>date</code> by months (otherwise data is too noisy).</li>
 <li>Group by <code>date</code> and <code>cateegory</code> and then <code>rest_index</code>.</li>
@@ -216,6 +216,90 @@
 <li>Scale byy row totals and generate cumsum (across rows)</li>
 <li>Plot using <code>plot.area</code> in reverse order.</li>
 </ul>
+<p style="margin-bottom:30cm;">
+   Scroll down for solution
+</p>
+
+<h2>Solution</h2>
+<p><strong>Step 1:</strong></p>
+<p>Group the data by month and category.  The grouping by month is more difficult since the <code>date</code> column is in days. However pandas has functions to deal with dates, for example to group columns <code>date</code> by month we use <code>pd.Grouper(key='date', freq='1M')</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;1M&#39;</span><span class="p">),</span><span class="s2">&quot;category&quot;</span><span class="p">]</span>
+<span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">columns</span><span class="p">)[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">df_tmp</span>
+</code></pre></div>
+</td></tr></table>
+<p>which results in a dataframe containing the count of each category by month:</p>
+<figure>
+<img src="files/df_group.png" width=90%>
+<figcaption>Count of each category by month.</figcaption>
+</figure>
+
+<p><strong>Step 2:</strong></p>
+<p>Pivot the column <code>category</code> so that each category label is a separate column:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">df_tmp</span>
+</code></pre></div>
+</td></tr></table>
+<p>which results in the following cross table. Note the filling of missing values by zero.</p>
+<figure>
+<img src="files/df_step2.png" width=90%>
+<figcaption>Cross table of data (month) vs category.</figcaption>
+</figure>
+
+<p><strong>Step 3:</strong></p>
+<p>We want to divide each row by the sum of occurrences (frequencies) in each row</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">df_tmp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">df_tmp</span>
+</code></pre></div>
+</td></tr></table>
+<p>so we have </p>
+<figure>
+<img src="files/df_step3.png" width=90%>
+<figcaption>Cross table of data with rows divided by row total.</figcaption>
+</figure>
+
+<p><strong>Step 4:</strong></p>
+<p>We want to calculate the cumulative sum along each row:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_tmp</span>
+</code></pre></div>
+</td></tr></table>
+<p>so we have </p>
+<figure>
+<img src="files/df_step4.png" width=90%>
+<figcaption>Cross table of data with cumulative sum along each row.</figcaption>
+</figure>
+
+<p><strong>Step 5:</strong></p>
+<p>Finally, generate the plot. We draw the topics in reverse order so that each topic area is visible.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">columns</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="n">df_tmp</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Topic frequency over time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
 		
 		<ul class="pager">
 			

@@ -168,6 +168,14 @@
 											<a href="02-Topic_Modelling.html">Topic Modelling</a>
 										</li>
 										
+										<li >
+											<a href="03-Temporal_View.html">Temporal View</a>
+										</li>
+										
+										<li >
+											<a href="04-Trending_Topics.html">Trending Topics</a>
+										</li>
+										
 									</ul>
 								</li>
 							</ul>
@@ -196,8 +204,8 @@
 <h2>Setup Project</h2>
 <p>As usual:</p>
 <ul>
-<li>Create a notebook, <code>Trumps_Tweets.ipynb</code> with standard setup code and create subfolders <code>src</code>, <code>data</code>, and <code>output</code>. </li>
-<li>Place <a href="files/wapo_trumpclaims_export-012021.csv.gz">compressed data file</a> into <code>src</code> folder.</li>
+<li>Create a notebook, <code>Trumps_Claims.ipynb</code> with standard setup code and create subfolders <code>orig</code>, <code>data</code>, and <code>output</code>. </li>
+<li>Place <a href="files/wapo_trumpclaims_export-012021.csv.gz">compressed data file</a> into <code>orig</code> folder.</li>
 <li>Load data into dataframe <code>df</code> and verify import</li>
 </ul>
 <figure>
@@ -243,17 +251,15 @@ This is a standard task so I would typically wrap the steps in a function called
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">min_token_len</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Given a string, separate into tokens and clean. Return list of tokens.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">min_token_len</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a string, separate into tokens and clean. Return list of tokens.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">clean_text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="n">lower</span> <span class="k">else</span> <span class="n">text</span>
 
     <span class="c1"># TODO </span>
     <span class="c1"># tokenize text</span>
-    <span class="c1"># split into tokens</span>
     <span class="c1"># drop stopwords and punctuation (see string.punctuation)</span>
     <span class="c1"># lemmatize each token</span>
     <span class="c1"># drop tokens less than min_token_len</span>
