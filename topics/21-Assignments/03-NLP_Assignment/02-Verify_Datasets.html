@@ -148,7 +148,7 @@
 							<ul class="nav navbar-nav">
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										<span>Match Paper</span
+										<span>Verify Datasets</span
 									</a>
 									<ul class="dropdown-menu" role="menu">
 										
@@ -160,11 +160,11 @@
 											<a href="01-Setup_and_Load.html">Setup and Load</a>
 										</li>
 										
-										<li >
+										<li class="active">
 											<a href="02-Verify_Datasets.html">Verify Datasets</a>
 										</li>
 										
-										<li class="active">
+										<li >
 											<a href="03-Match_Paper.html">Match Paper</a>
 										</li>
 										
@@ -196,32 +196,35 @@
 		
 		<ul class="pager">
 			
-			<li class="previous"><a href="02-Verify_Datasets.html">&larr; Previous (Verify Datasets)</a></li>
+			<li class="previous"><a href="01-Setup_and_Load.html">&larr; Previous (Setup and Load)</a></li>
 			
 			
 			
-			<li class="next"><a href="04-Text_Preprocessing.html">Next (Text Preprocessing) &rarr;</a></li>
+			<li class="next"><a href="03-Match_Paper.html">Next (Match Paper) &rarr;</a></li>
 			
 		</ul>
 		
-		<h1>Task 3: Match Paper (~15%)</h1>
-<p>Create a section in your notebook called <strong>Match Paper</strong>.</p>
+		<h1>Task 2: Verify datasets (~15%)</h1>
+<p>Create a section in your notebook called <strong>Verify dataset</strong>.</p>
 <hr />
-<p>(Again this is a small section to break up the grading - so &lt;10 lines of code)</p>
-<p>In the local copy of the paper I have flagged the data as green/red based on whether I was able to reproduce the data or not. I want you to wrote code to:</p>
+<p>Write code to check each of the following.  Don't over think this bit. Each check is at most one/two lines of code:</p>
 <ol>
-<li>Reproduce the green marked data in Table 1.</li>
-<li>Reproduce the green marked data in Table 2.</li>
+<li><code>df_authors.author</code> is a unique identifier.</li>
+<li>No missing values in <code>df_authors</code>.</li>
+<li><code>df_comments.id</code> is a unique identifier.</li>
+<li>Each comment author is in the list of QAnon authors, <code>df_authors.author</code>.</li>
+<li><code>df_submissions.id</code> is a unique identifier.</li>
+<li>Each submission author is in the list of QAnon authors, <code>df_authors.author</code>.</li>
+<li>In <code>df_subreddits</code>, the number of moderators listed in <code>allModNames</code> matches count in <code>allMods</code>.</li>
 </ol>
-<p><a href="03-Text_Preprocessing.html">Next</a> we are going to following the step covered in the <a href="../../07-Text_Mining/22-Practical_-_Trumps_Claims/00-Outline.html">topic modelling of Trumps false claims practical</a> and clean the text features.  In this dataset we have three such features <code>df_comments.body</code>, or <code>df_submissions.title</code> and <code>df_submissions.text</code>.</p>
 		
 		<ul class="pager">
 			
-			<li class="previous"><a href="02-Verify_Datasets.html">&larr; Previous (Verify Datasets)</a></li>
+			<li class="previous"><a href="01-Setup_and_Load.html">&larr; Previous (Setup and Load)</a></li>
 			
 			
 			
-			<li class="next"><a href="04-Text_Preprocessing.html">Next (Text Preprocessing) &rarr;</a></li>
+			<li class="next"><a href="03-Match_Paper.html">Next (Match Paper) &rarr;</a></li>
 			
 		</ul>
 
