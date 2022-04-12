@@ -148,11 +148,11 @@
 							<ul class="nav navbar-nav">
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										<span>Outline</span
+										<span>Sample Dataset</span
 									</a>
 									<ul class="dropdown-menu" role="menu">
 										
-										<li class="active">
+										<li >
 											<a href="00-Outline.html">Outline</a>
 										</li>
 										
@@ -172,7 +172,7 @@
 											<a href="04-Text_Preprocessing.html">Text Preprocessing</a>
 										</li>
 										
-										<li >
+										<li class="active">
 											<a href="05-Sample_Dataset.html">Sample Dataset</a>
 										</li>
 										
@@ -196,69 +196,40 @@
 		
 		<ul class="pager">
 			
-			<li class="previous disabled"><a>&larr; Previous</a></li>
+			<li class="previous"><a href="04-Text_Preprocessing.html">&larr; Previous (Text Preprocessing)</a></li>
 			
 			
 			
-			<li class="next"><a href="01-Setup_and_Load.html">Next (Setup and Load) &rarr;</a></li>
+			<li class="next"><a href="06-Topic_Modelling.html">Next (Topic Modelling) &rarr;</a></li>
 			
 		</ul>
 		
-		<h1>Analysis of QAnon User on Reddit</h1>
-<h2>Aim</h2>
-<p>Use a mixture of techniques to study user behaviour on known QAnon popular subreddits.</p>
-<h2>Background</h2>
-<p>This assignment is prompted by the paper <a href="#paper">Characterizing Reddit Participation of Users Who Engage in the QAnon Conspiracy Theories</a> whose authors collated the dataset that we will use. This dataset appears to have some slight differences with that used in the paper.  If you use the local copy of the paper, you should see figures highlighted in green if I was able to reproduce it from the dataset, or red otherwise. In some cases I also include the python code used in a PDF margin note.</p>
-<p>This (2.3GB as uncompressed CSV) dataset 
-(<a href="">posted in slack</a>)
-consists of five tables:</p>
+		<h1>Task 5: Sample Dataset (5%)</h1>
+<p>Create a section in your notebook called <strong>Sample Dataset</strong>.</p>
+<hr />
+<p>The dataset is too large to analyise fully so we will perform the topic modelling analysis for a single subreddit in the <code>df_submissions</code> dataframe. So pick a subreddit from one of the top 20 subreddits ordered in terms of number of submissions, I picked <code>TruthLeaks</code> and suggest you use this &mdash; but feel free to try another subreddit.</p>
+<p>Once you have picked your subreddit of choice then create a new dataframe called <code>df</code>, from the <code>df_submissions</code> dataframe by selecting all rows where:</p>
 <ul>
-<li><code>authors</code>: List of 13,182 reddit users who commented/submitted to QAnon identified subreddits. No missing values or other issues. </li>
-<li><code>comments</code>: List of 11,394,929 comments with full text. The paper stated 10,831,922 comments, after dropping all NA we get 10,831,841 rows. </li>
-<li><code>submissions</code>: List of 2,775,263 posts with full text. The paper stated 2,099,875 comments. After dropping all NA (except for NA in <code>text</code>) we get 2,099,686 rows. </li>
-<li><code>subreddits</code>: List of 12,987 subreddits where at least two QAnon-enthusiastic users have made a submission. </li>
-<li><code>paper</code>: List of 19 subreddits, identified in the paper [<a href="#paper">Appendix A, 1</a>], where QAnon users were more active.</li>
-</ul>
-<p>The paper looks at interaction - submission and comments - over three periods, each of 319 days in length.  The three periods are:</p>
-<ul>
-<li><strong>Pre-Q period</strong> 13 December 2016 - 28 October 2017. </li>
-<li><strong>Q period</strong>  28 October 2017 - 12 September 2018. From QAnon's first post on <code>4chan</code> up to the Reddit ban of QAnon-focused subreddits. </li>
-<li><strong>Post-Q period</strong> 12 September 2018 - 28 July 2019</li>
-</ul>
-<p>We won't do the same analysis as covered in the paper, but instead try to see what other information we can extract. </p>
-<h2>Tasks</h2>
-<p>In below I have tried to break the analysis into separate tasks which, except for the first task, are relatively independent. Your notebook should have level 2 sections covering each task.</p>
-<ul>
-<li><a href="01-Setup_and_Load.html">Task 1 (10%): Setup, load and prepare dataset</a></li>
-<li><a href="02-Verify_Dataset.html">Task 2 (15%): Verify dataset</a></li>
-<li><a href="03-Match_Paper.html">Task 3 (15%): Match data presented in paper</a></li>
-<li><a href="04-Text_Preprocessing.html">Task 4 (15%): Text preprocessing</a></li>
-<li><a href="05-Sample_Dataset.html">Task 5 (&nbsp;&nbsp;5%): Sample dataset</a></li>
-<li><a href="06-Topic_Modelling.html">Task 6 (40%): Topic modelling</a></li>
-</ul>
-<h3>Submission</h3>
-<div class="pager">
-<a class="btn btn-primary btn-lg" target="_blank" href="https://moodle.wit.ie/mod/assign/view.php?id=3718150" role="button">Submit using Moodle</a>
-</div>
-
-<h2>References</h2>
-<ul>
+<li>subreddit matches the one you selected</li>
+<li>drop rows where <code>text</code> is NA</li>
+<li>drop rows where <code>title==text</code><br/>
+ (We are going to compare topic modelling based on <code>title</code> against on <code>text</code>, rows where <code>title==text</code> will bias this.)</li>
 <li>
-<p><a name="paper"></a><a href="https://arxiv.org/abs/2203.07433">Characterizing Reddit Participation of Users Who Engage in the QAnon Conspiracy Theories</a>
-   (<a href="files/Characterizing_Reddit_Participation_of_Users_Who_Engage_in_the_QAnon_Conspiracy_Theories__2022.pdf">local copy</a>).</p>
+<p>drop rows where <code>title="[removed]"</code> <br />
+ (These rows do not have a meaningful entry for <code>text</code>.)</p>
 </li>
 <li>
-<p><a href="https://opendatagroup.github.io/data%20science/2019/03/21/preprocessing-text.html">When (not) to Lemmatize or Remove Stop Words in Text Preprocessing</a></p>
+<p>drop duplicate rows based on subset <code>["title", "text"]</code> <br /></p>
 </li>
 </ul>
 		
 		<ul class="pager">
 			
-			<li class="previous disabled"><a>&larr; Previous</a></li>
+			<li class="previous"><a href="04-Text_Preprocessing.html">&larr; Previous (Text Preprocessing)</a></li>
 			
 			
 			
-			<li class="next"><a href="01-Setup_and_Load.html">Next (Setup and Load) &rarr;</a></li>
+			<li class="next"><a href="06-Topic_Modelling.html">Next (Topic Modelling) &rarr;</a></li>
 			
 		</ul>
 

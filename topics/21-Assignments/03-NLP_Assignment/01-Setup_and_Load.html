@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Data Mining 2</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../style/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../../style/codehilite/css/default.css" rel="stylesheet">
+    <link href="../../../style/misc/css/module.css" rel="stylesheet">
+    <link href="../../../style/misc/css/practical.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<script type="text/javascript"
+	  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+
+  </head>
+
+<body>
+
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			
+			
+	    	<div class="collapse navbar-collapse">
+
+				<ul class="nav navbar-nav navbar-left">
+					<!-- Moodle -->
+					<li>
+						<div class="navbar-header">
+							<a class="navbar-brand" href="https://moodle.wit.ie/course/view.php?id=182862" target="_blank"><img height="18pt" src="../../../style/misc/img/moodle_logo_on_blue.gif" /></a>
+						</div>						
+					</li>
+					<li>
+						<div class="navbar-header">
+							<a class="navbar-brand" href="https://moodle.wit.ie/course/view.php?id=182862" target="_blank"><img height="18pt" src="../../../style/misc/img/slack_logo.png" /></a>
+						</div>						
+					</li>
+				</ul>
+
+	      		<ul class="nav navbar-nav navbar-right">
+
+					<!-- module home -->
+					<li>
+						<div class="navbar-header">
+							<a class="navbar-brand" href="../../../index.html"><span class="glyphicon glyphicon-home"></span></a>
+						</div>						
+					</li>
+					
+					<!-- topics -->
+	        		<li>
+						<div class="navbar-collapse collapse" id="b">
+							<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										<span class="glyphicon glyphicon-list-alt"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu">
+										<li class="dropdown-header">Topics</li>
+										
+										<li >
+											<a href="../../../topics/01-Module_Introduction/index.html">Module Introduction</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/02-Feature_Engineering/index.html">Feature Engineering</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/03-Review_of_Model_Building/index.html">Review of Model Building</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/04-Hyperparameter_Tuning/index.html">Hyperparameter Tuning</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/05-Ensemble_Learning/index.html">Ensemble Learning</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/06-Time_Series_Mining/index.html">Time Series Mining</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/07-Text_Mining/index.html">Text Mining</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/08-eXplainable_AI/index.html">eXplainable AI</a>
+										</li>
+										
+										<li class="active">
+											<a href="../../../topics/21-Assignments/index.html">Assignments</a>
+										</li>
+										
+									</ul>
+								</li>
+							</ul>
+						</div>			
+					</li>
+
+					<!-- resources -->
+	        		<li>
+						<div class="navbar-collapse collapse" id="b">
+							<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										<span class="glyphicon glyphicon-th-list"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu">
+										<li class="dropdown-header">Resources</li>
+										
+										<li >
+											<a href="../../../topics/21-Assignments/index.html#01-NASA_Software_Defect_Datasets">NASA Software Defect Datasets</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/21-Assignments/index.html#02-Kaggle_Style_Competition">Kaggle Style Competition</a>
+										</li>
+										
+										<li class="active">
+											<a href="../../../topics/21-Assignments/index.html#03-NLP_Assignment">NLP Assignment</a>
+										</li>
+										
+									</ul>
+								</li>
+							</ul>
+						</div>			
+					</li>
+								
+					<!-- pages-->
+	        		<li>
+						<div class="navbar-collapse collapse" id="c">
+							<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										<span>Setup and Load</span
+									</a>
+									<ul class="dropdown-menu" role="menu">
+										
+										<li >
+											<a href="00-Outline.html">Outline</a>
+										</li>
+										
+										<li class="active">
+											<a href="01-Setup_and_Load.html">Setup and Load</a>
+										</li>
+										
+										<li >
+											<a href="02-Verify_Dataset.html">Verify Dataset</a>
+										</li>
+										
+										<li >
+											<a href="03-Match_Paper.html">Match Paper</a>
+										</li>
+										
+										<li >
+											<a href="04-Text_Preprocessing.html">Text Preprocessing</a>
+										</li>
+										
+										<li >
+											<a href="05-Sample_Dataset.html">Sample Dataset</a>
+										</li>
+										
+										<li >
+											<a href="06-Topic_Modelling.html">Topic Modelling</a>
+										</li>
+										
+									</ul>
+								</li>
+							</ul>
+						</div>			
+					</li> 
+					
+	        	</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- contents -->
+	<div class="container">
+		
+		<ul class="pager">
+			
+			<li class="previous"><a href="00-Outline.html">&larr; Previous (Outline)</a></li>
+			
+			
+			
+			<li class="next"><a href="02-Verify_Dataset.html">Next (Verify Dataset) &rarr;</a></li>
+			
+		</ul>
+		
+		<h1>Task 1: Setup, load and prepare datasets (10%)</h1>
+<ul>
+<li>Create a python notebook with the usual setup code cells.</li>
+<li>Place the data files in <code>orig</code> folder.</li>
+<li>Read in each of the data files and perform basic cleaning (described below in <a href="#Datasets">Datasets</a>), and then save into <code>data</code> using <code>pickle</code> format for faster loading in later runs of your notebook. There is no need to save a pickle version of <code>paper</code>, given its small size.</li>
+</ul>
+<h2><a name="Datasets"></a>Datasets</h2>
+<p>The dataset consists of five files. For each import, perform basic cleaning as described below and then save as pickle format to subfolder <code>data</code>. I have given the code for <code>authors</code> and <code>comments</code>, and have used a similar block of code for the other files. </p>
+<h3><code>df_authors</code> from file <code>authors.csv.gz</code></h3>
+<p>List of 13,182 reddit users who commented/submitted to QAnon identified subreddits. No missing values or other issues. Columns:</p>
+<ul>
+<li><code>QAuthor</code>: unique identifier (hashed for user privacy - [see paper, Section 3]). This column is renamed to <code>author</code> to simplify joins.</li>
+<li><code>isUQ</code>: 0 for <strong>QAnon-interested</strong>, 1 for <strong>QAnon-enthusiastic</strong> users [see paper, Section 1]).</li>
+<li><code>status</code>: stores <code>[Active, DNE, Is_suspended]</code>. (<code>DNE</code>=<code>Does Not Exist</code>.)</li>
+</ul>
+<p>Code to load and prepare date file:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">basename</span> <span class="o">=</span> <span class="s2">&quot;authors&quot;</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data/</span><span class="si">{</span><span class="n">basename</span><span class="si">}</span><span class="s2">.pickle&quot;</span><span class="p">):</span>
+    <span class="c1"># loading</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading pickle file&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; ... &quot;</span><span class="p">)</span>
+    <span class="n">df_authors</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data/</span><span class="si">{</span><span class="n">basename</span><span class="si">}</span><span class="s2">.pickle&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># loading</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading csv&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; ... &quot;</span><span class="p">)</span>
+    <span class="n">df_authors</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;orig/</span><span class="si">{</span><span class="n">basename</span><span class="si">}</span><span class="s2">.csv.gz&quot;</span><span class="p">)</span>
+    <span class="c1"># cleaning</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df_authors</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; ... &quot;</span><span class="p">)</span>
+    <span class="n">df_authors</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;QAuthor&quot;</span><span class="p">:</span><span class="s2">&quot;author&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># save as pickle for later use</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;generating pickle file&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; ... &quot;</span><span class="p">)</span>
+    <span class="n">df_authors</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data/</span><span class="si">{</span><span class="n">basename</span><span class="si">}</span><span class="s2">.pickle&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_authors</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df_authors</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h3><code>df_comments</code> from file <code>comments.csv.gz</code></h3>
+<p>List of 11,394,929 comments with full text. The paper stated 10,831,922 comments, after dropping all rows with NA we get 10,831,841 rows. Columns:</p>
+<ul>
+<li><code>id</code>: unique identifier (this is unique after dropping NA).</li>
+<li><code>link_id</code>: submission id that this comment is in response to (NB: with prefix "t3_")</li>
+<li><code>parent_id</code>: this points to <code>link_id</code> of the previous comment that this comment is replying to.</li>
+<li><code>author</code>: hash of author identifier. Link to <code>df_authors.author</code></li>
+<li><code>subreddit</code>:</li>
+<li><code>body</code>: the text of the comment </li>
+<li><code>date_created</code>. Should be read using <code>parse_dates=["date_created"]</code>.</li>
+</ul>
+<p>Code to load and prepare date file:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">basename</span> <span class="o">=</span> <span class="s2">&quot;comments&quot;</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data/</span><span class="si">{</span><span class="n">basename</span><span class="si">}</span><span class="s2">.pickle&quot;</span><span class="p">):</span>
+    <span class="c1"># loading</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading pickle file&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; ... &quot;</span><span class="p">)</span>
+    <span class="n">df_comments</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data/</span><span class="si">{</span><span class="n">basename</span><span class="si">}</span><span class="s2">.pickle&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># loading</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading csv&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; ... &quot;</span><span class="p">)</span>
+    <span class="n">df_comments</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;orig/</span><span class="si">{</span><span class="n">basename</span><span class="si">}</span><span class="s2">.csv.gz&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;date_created&quot;</span><span class="p">])</span>
+    <span class="c1"># cleaning</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df_comments</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;dropna&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; ... &quot;</span><span class="p">)</span>
+    <span class="n">df_comments</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df_comments</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; ... &quot;</span><span class="p">)</span>
+    <span class="c1"># save as pickle for later use</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;generating pickle file&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; ... &quot;</span><span class="p">)</span>
+    <span class="n">df_comments</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data/</span><span class="si">{</span><span class="n">basename</span><span class="si">}</span><span class="s2">.pickle&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_comments</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df_comments</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h3><code>df_submissions</code> from file <code>submissions.csv.gz</code></h3>
+<p>List of 2,775,263 posts with full text. The paper stated 2,099,875 comments. After dropping all rows with NA (except for NA in <code>text</code>) we get 2,099,686 rows. Columns:</p>
+<ul>
+<li><code>subreddit</code>: </li>
+<li><code>id</code>: unique identifier (this is unique after dropping NA).</li>
+<li><code>score</code>: </li>
+<li><code>numReplies</code>:</li>
+<li><code>author</code>: hash of author identifier. Link to <code>df_authors.author</code></li>
+<li><code>title</code>:</li>
+<li><code>text</code>:</li>
+<li><code>is_self</code>:</li>
+<li><code>domain</code>:</li>
+<li><code>url</code>:</li>
+<li><code>permalink</code>:</li>
+<li><code>upvote_ratio</code>:</li>
+<li><code>date_created</code> Should be read using <code>parse_dates=["date_created"]</code>.</li>
+</ul>
+<p><strong>TODO</strong>: Write the corresponding code to load and prepare this data file. You should get</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Reading csv ... <span class="o">(</span><span class="m">2775263</span>, <span class="m">13</span><span class="o">)</span> dropna ... <span class="o">(</span><span class="m">2099686</span>, <span class="m">13</span><span class="o">)</span> ... generating pickle file ... <span class="o">(</span><span class="m">2099686</span>, <span class="m">13</span><span class="o">)</span>
+</code></pre></div>
+</td></tr></table>
+<h3><code>df_subreddits</code> from file <code>subreddits.csv.gz</code></h3>
+<p>List of 12,987 subreddits where at least two QAnon-enthusiastic users have made a submission. Too many columns to list here.</p>
+<p><strong>TODO</strong>: Write the corresponding code to load and prepare this data file.</p>
+<h3><code>df_paper</code> from file <code>paper.csv.gz</code></h3>
+<p>List of 19 subreddits, identified in the paper [see paper, Appendix A], where QAnon users were more active. Since this file is small, there is no need to generate the pickle version.</p>
+<p><strong>TODO</strong>: Write the corresponding code to load this data file.</p>
+		
+		<ul class="pager">
+			
+			<li class="previous"><a href="00-Outline.html">&larr; Previous (Outline)</a></li>
+			
+			
+			
+			<li class="next"><a href="02-Verify_Dataset.html">Next (Verify Dataset) &rarr;</a></li>
+			
+		</ul>
+
+	</div>
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../../../style/bootstrap/js/bootstrap.min.js"></script>
+	
+  </body>
+</html>
